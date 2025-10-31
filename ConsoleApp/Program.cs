@@ -29,4 +29,16 @@ Point3D CreatePoint3D(float[] tab)
     return new Point3D(tab[0], tab[1], tab[2]);
 }
 
+// Test Product.ToJson()
+var product = new Product
+{
+ Name = "Laptop",
+ Price =1299.99M,
+ Description = "High-end gaming laptop",
+ Category = "Electronics",
+ CategoryName = "Computers"
+};
+Console.WriteLine("Product JSON:");
+Console.WriteLine(product.ToJson());
+
 

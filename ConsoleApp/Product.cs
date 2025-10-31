@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp
+﻿using Newtonsoft.Json;
+
+namespace ConsoleApp
 {
     internal class Product
     {
@@ -8,5 +10,9 @@
         public string Category { get; set; }
         public string CategoryName { get; set; }
 
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }

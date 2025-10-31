@@ -1,42 +1,24 @@
-﻿
-using ConsoleApp;
+﻿using ConsoleApp;
 
 Console.WriteLine("Hello, World!");
 
+var calculator = new Calculator();
 
-//funkcja wygenerowana na podstawie nagłówka funkcji
-int Sum(float a, float b) //Tokenizacja: int, Sum, (, float, a, ,, float, b, )
-    => (int)(a + b);
-
-
-//funkcja wygenerowana na podstawie komentarza
-//substract two float numbers and return an integer. Use block body syntax.
-int Subtract(float a, float b)
+void DemoCalculatorOperations(Calculator calculator)
 {
-    return (int)(a - b);
+    int sum = calculator.Sum(5.5f, 2.3f);
+    int sub = calculator.Subtract(5.5f, 2.3f);
+    int mul = calculator.Multiply(5.5f, 2.3f);
+    float? div = calculator.Divide(5.5f, 2.3f);
+
+    Console.WriteLine($"Sum: {sum}");
+    Console.WriteLine($"Subtract: {sub}");
+    Console.WriteLine($"Multiply: {mul}");
+    Console.WriteLine($"Divide: {div}");
 }
 
-
-//multiply two numebrs
-int Multiply(float a, float b)
-{
-    return (int)(a * b);
-}
-
-//pierwotnie wygenerowana funkcja Multiply została zmodyfikowana przez użytkownika
-//co spwodowało, że model dostosował kolejny generowany kod (Divide) do zmian użytkownika
-//kontenst "nauki" copilot jest ograniczony do bieżącej sesji - np. wyłączenie IDE powoduje utratę kontekstu
-
-//divide two numbers
-int Divide(float a, float b) 
-{
-    if (b == 0)
-    {
-        throw new DivideByZeroException("Denominator cannot be zero.");
-    }
-    return (int)(a / b);
-}
-
+// Call the method
+DemoCalculatorOperations(calculator);
 
 Point3D CreatePoint3D(float[] tab)
 {
@@ -46,3 +28,5 @@ Point3D CreatePoint3D(float[] tab)
     }
     return new Point3D(tab[0], tab[1], tab[2]);
 }
+
+
